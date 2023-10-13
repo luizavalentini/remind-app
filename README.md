@@ -1,4 +1,4 @@
-# remind-app 📘
+# remind-website 📘
 
 ## Description
 The "remind-app" project is a user-friendly and simple efficient reminder application designed to help users stay organized and never miss important tasks or events

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./public/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./public/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./public/favicon-16x16.png">
+    <link rel="manifest" href="./public/site.webmanifest">
+    <link rel="stylesheet" href="./src/css/reset.css" />
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <title>Reminders</title>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <h1>Reminders App</h1>
+        <div class="btn-container">
+          <div class="data">
+            <div onclick="mudarDataVoltar()"><</div>
+            <div class="mostra"></div>
+            <div onclick="mudarDataAvançar()">></div>
+          </div>
+          <button class="button-primary" onclick="manipularModal()">
+            + Add a reminder
+          </button>
+        </div>
+      </div>
+      <div class="tasks" style="display: flex; flex-direction: column;">
+            
+      </div>
+    </main>
+    <div class="modal-container hidden">
+      <div class="modal">
+        <div class="icon-container">
+          <img src="./public/favicon-32x32.png" alt=""><p>emainders</p>
+        </div>
+        <h2 class="modal-title">Add a reminder</h2>
+        </header>
+        <form class="modal-body">
+          <div class="form-control">
+            <label for="descricao" class="label">Description:</label>
+            <input
+              class="modal-input"
+              name="descricao"
+              id="descricao"
+              type="text" required
+              onchange="validarDescricao(this.value)"
+              pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ0-9 ]+$"
+              maxlength="60"
+            />
+            <span id="erro-descricao" class="erro-form"></span>
+          </div>
+          <div class="form-control">
+            <label for="mes">Month:</label>
+            <select class="modal-input" name="mes" class="" id="mes">
+              <option value="jan">Jan</option>
+              <option value="fev">Feb</option>
+              <option value="mar">Mar</option>
+              <option value="abr">Apr</option>
+              <option value="mai">May</option>
+              <option value="jun">Jun</option>
+              <option value="jul">Jul</option>
+              <option value="ago">Aug</option>
+              <option value="set">Sep</option>
+              <option value="out">Oct</option>
+              <option value="nov">Nov</option>
+              <option value="dez">Dec</option>
+            </select>
+          </div>
+          <div class="form-control">
+            <label for="ano">year:</label>
+            <input
+              class="modal-input input-number"
+              name="ano"
+              min="2023"
+              max="2030"
+              value="2023"
+              id="descricao"
+              type="number" 
+              required
+            />
+          </div>
+          <div class="form-control">
+            <label for="hora">time:</label>
+            <input class="modal-input" type="text" onchange="validarHorario(this.value)" name="hora" id="hora" required/>
+            <span id="erro-horario" class="erro-form"></span>
+          </div>
+          <div class="form-control">
+            <button type="submit" class="button-primary">
+                Submit
+              </button>
+              <button
+                id="delete"
+                type="button"
+                class="button-primary"
+                onclick="manipularModal()"
+              >
+                Cancel
+              </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="./src/js/main.js"></script>
+  </body>
+</html>
